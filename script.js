@@ -1,6 +1,6 @@
 $(document).ready(function() {
 
-  var apiRoot = 'http://infinite-fortress-62318.herokuapp.com/v1/task/getTasks';
+  var apiRoot = 'http://infinite-fortress-62318.herokuapp.com/v1/task/';
   var datatableRowTemplate = $('[data-datatable-row-template]').children()[0];
   var tasksContainer = $('[data-tasks-container]');
 
@@ -28,7 +28,7 @@ $(document).ready(function() {
   }
 
   function getAllTasks() {
-    var requestUrl = apiRoot + '';
+    var requestUrl = apiRoot + 'getTasks';
 
     $.ajax({
       url: requestUrl,
