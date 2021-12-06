@@ -5,7 +5,7 @@ hr {
   border-style: none;
   border-top-style: dotted;
   height: 0px;
-  width: 99%;
+  width: 98%;
   border-color: #c7bea2;
   border-width: 10px;
 }
@@ -15,4 +15,21 @@ h1 {
 }
 h2 {
   color: #4a403a;
+}
+
+th {
+  width: 200px;
+  text-align: left;
+  color: #4a403a;
+}
+ul {
+  margin-block-start: 0em;
+  padding-inline-start: 20px;
+}
+a {
+  color: #32502e;
+}
+/************************ CLASS Selectors ******************/
+.column_style {
+  vertical-align: top;
 }
