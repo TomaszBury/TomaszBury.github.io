@@ -1,6 +1,8 @@
 /* https://colorhunt.co/palette/064635519259f0bb62f4eea9 */
 body {
   margin: 0px;
+  /* https://colorhunt.co/palette/142f43ffab4cff5f7eb000b9 */
+  background-color: #142f43;
 }
 
 h1 {
@@ -13,30 +15,42 @@ h1 {
 }
 .middle-container {
   background-color: #519259;
-  height: 200px;
-  width: 200px;
+  margin-left: 200px;
 }
 .bottom-container {
   background-color: #f0bb62;
-  height: 200px;
-  width: 200px;
+  margin-left: 400px;
 }
 
 .top {
   background-color: #f4eea9;
-  border-top-width: 10px;
-  height: 200px;
-  width: 200px;
+  border: solid 10px;
+  margin-left: 0px;
 }
 .middle {
   background-color: #f0bb62;
-  margin-left: 200px;
-  height: 200px;
-  width: 200px;
+  border: solid 20px;
+  margin-left: 220px;
 }
 .bottom {
   background-color: #519259;
+  border: solid 10px;
+  margin-left: 460px;
+}
+.second-middle-container {
+  background-color: #519259;
   margin-left: 400px;
+}
+
+.size {
   height: 200px;
   width: 200px;
+}
+.perfect-container {
+  background-color: #50b6bb;
+  padding: 20px;
+  margin-left: 200px;
+  text-align: center;
+  height: 160px;
+  width: 160px;
 }
