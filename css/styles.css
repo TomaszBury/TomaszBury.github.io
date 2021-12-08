@@ -29,7 +29,20 @@ ul {
 a {
   color: #32502e;
 }
+
 /************************ CLASS Selectors ******************/
 .column_style {
   vertical-align: top;
+}
+.skils_table_slim {
+  border-collapse: collapse;
+  border: 1px solid black;
+  padding-left: 15px;
+  width: 150px;
+}
+.skils_table_fat {
+  border-collapse: collapse;
+  border: 1px solid black;
+  padding-left: 15px;
+  width: 450px;
 }

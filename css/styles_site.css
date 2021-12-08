@@ -12,12 +12,17 @@ hr {
   border-style: none;
   border-top-style: dotted;
   height: 0px;
-  width: 98%;
-  border-color: #c7bea2;
-  border-width: 10px;
+  width: 225%;
+  border-color: #ff5f7e;
+  border-width: 70px;
 }
 
 /****************************  *****************************/
+.a_back {
+  color: #ff5f7e;
+  font-size: 25px;
+  padding: 20px;
+}
 .top-container {
   background-color: #f4eea9;
 }
