@@ -8,6 +8,14 @@ body {
 h1 {
   margin-top: 0px;
 }
+hr {
+  border-style: none;
+  border-top-style: dotted;
+  height: 0px;
+  width: 98%;
+  border-color: #c7bea2;
+  border-width: 10px;
+}
 
 /****************************  *****************************/
 .top-container {
@@ -32,6 +40,12 @@ h1 {
   border: solid 20px;
   margin-left: 220px;
 }
+.start_middle {
+  background-color: #f0bb62;
+  margin-left: 0px;
+  height: 200px;
+  width: 200px;
+}
 .bottom {
   background-color: #519259;
   border: solid 10px;
@@ -40,6 +54,16 @@ h1 {
 .second-middle-container {
   background-color: #519259;
   margin-left: 400px;
+}
+.second-container {
+  background-color: #d06224;
+  margin-left: 400px;
+}
+.start {
+  background-color: #d06224;
+  margin-left: 0px;
+  height: 200px;
+  width: 200px;
 }
 
 .size {
