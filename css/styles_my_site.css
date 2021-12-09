@@ -1,0 +1,39 @@
+/* https://colorhunt.co/palette/064635519259f0bb62f4eea9 */
+a {
+  color: #22577e;
+  padding: 20px;
+  margin-left: 20px;
+}
+body {
+  margin: 0px;
+  /* https://colorhunt.co/palette/142f43ffab4cff5f7eb000b9 */
+  background-color: #f6f2d4;
+}
+
+h1 {
+  margin-top: 0px;
+}
+hr {
+  border-style: none;
+  border-top-style: dotted;
+  height: 0px;
+  width: 225%;
+  border-color: #ff5f7e;
+  border-width: 70px;
+}
+
+/****************************  *****************************/
+
+.size {
+  height: 200px;
+  width: 200px;
+}
+.perfect-container {
+  background-color: #95d1cc;
+  padding: 20px;
+  margin-left: 0px;
+  text-align: left;
+}
+.pro {
+  text-decoration: underline;
+}
