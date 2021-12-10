@@ -1,5 +1,6 @@
 body {
   background-color: #e5dcc3;
+  font-family: "EB Garamond", serif;
 }
 hr {
   border-style: none;
@@ -12,9 +13,14 @@ hr {
 h1 {
   color: #4a403a;
   font-weight: bold;
+  font-family: "Sacramento", cursive;
 }
 h2 {
   color: #4a403a;
+  font-family: "Montserrat", sans-serif;
+}
+h3 {
+  font-family: "Montserrat", sans-serif;
 }
 
 th {
