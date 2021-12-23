@@ -52,3 +52,7 @@ a {
   padding-left: 15px;
   width: 450px;
 }
+.colum_skils {
+  vertical-align: text-top;
+  font-weight: bold;
+}
