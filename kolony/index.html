@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Value Changer App</title>
+    <!-- Tailwind CSS CDN for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom styles for the Inter font */
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 min-h-screen flex items-center justify-center p-4">
+    <div class="bg-white p-8 rounded-lg shadow-xl max-w-md w-full text-center">
+        <h1 class="text-3xl font-bold text-gray-800 mb-6">Value Changer</h1>
+
+        <!-- Display area for the current value -->
+        <p class="text-gray-600 text-lg mb-4">Current Value:</p>
+        <p id="displayValue" class="text-5xl font-extrabold text-indigo-600 mb-8 rounded-lg bg-indigo-50 py-4 px-6 inline-block min-w-[100px] transition-all duration-300 ease-in-out transform hover:scale-105">
+            0
+        </p>
+
+        <!-- Input field for new value -->
+        <div class="mb-6">
+            <label for="newValueInput" class="block text-gray-700 text-sm font-medium mb-2">Enter New Value:</label>
+            <input
+                type="text"
+                id="newValueInput"
+                class="shadow-sm appearance-none border rounded-lg w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all duration-200"
+                placeholder="Type your value here..."
+            >
+        </div>
+
+        <!-- Button to update the value -->
+        <button
+            id="updateButton"
+            class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-6 rounded-lg shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-75 transition-all duration-200 transform hover:-translate-y-0.5 active:scale-95 w-full"
+        >
+            Update Value
+        </button>
+
+        <!-- Message box for user feedback -->
+        <div id="messageBox" class="mt-6 p-3 bg-blue-100 text-blue-800 rounded-lg hidden"></div>
+    </div>
+
+    <script>
+        // Get references to the HTML elements
+        const displayValueElement = document.getElementById('displayValue');
+        const newValueInput = document.getElementById('newValueInput');
+        const updateButton = document.getElementById('updateButton');
+        const messageBox = document.getElementById('messageBox');
+
+        // Initialize the current value
+        let currentValue = "Hello World!"; // You can set any initial value here
+
+        /**
+         * Function to update the displayed value on the page.
+         * @param {string} value - The new value to display.
+         */
+        function updateDisplay(value) {
+            displayValueElement.textContent = value;
+            currentValue = value; // Update the internal state
+        }
+
+        /**
+         * Function to show a temporary message to the user.
+         * @param {string} message - The message to display.
+         * @param {string} type - The type of message (e.g., 'success', 'error', 'info').
+         */
+        function showMessage(message, type = 'info') {
+            messageBox.textContent = message;
+            messageBox.classList.remove('hidden', 'bg-green-100', 'text-green-800', 'bg-red-100', 'text-red-800', 'bg-blue-100', 'text-blue-800');
+
+            if (type === 'success') {
+                messageBox.classList.add('bg-green-100', 'text-green-800');
+            } else if (type === 'error') {
+                messageBox.classList.add('bg-red-100', 'text-red-800');
+            } else { // default to info
+                messageBox.classList.add('bg-blue-100', 'text-blue-800');
+            }
+
+            messageBox.classList.remove('hidden');
+
+            // Hide the message after 3 seconds
+            setTimeout(() => {
+                messageBox.classList.add('hidden');
+            }, 3000);
+        }
+
+        // Event listener for the update button
+        updateButton.addEventListener('click', () => {
+            const newValue = newValueInput.value.trim(); // Get the value from the input and remove leading/trailing whitespace
+
+            if (newValue) {
+                updateDisplay(newValue); // Update the displayed value
+                newValueInput.value = ''; // Clear the input field
+                showMessage('Value updated successfully!', 'success');
+            } else {
+                showMessage('Please enter a value to update.', 'error');
+            }
+        });
+
+        // Initial display of the value when the page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            updateDisplay(currentValue);
+        });
+    </script>
+</body>
+</html>
