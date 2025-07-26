@@ -25,12 +25,12 @@
 
         <!-- Input field for new value -->
         <div class="mb-6">
-            <label for="newValueInput" class="block text-gray-700 text-sm font-medium mb-2">Enter New Value:</label>
+            <label for="newValueInput" class="block text-gray-700 text-sm font-medium mb-2">Enter Value to Add:</label>
             <input
                 type="text"
                 id="newValueInput"
                 class="shadow-sm appearance-none border rounded-lg w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all duration-200"
-                placeholder="Type your value here..."
+                placeholder="Type a number here..."
             >
         </div>
 
@@ -39,7 +39,7 @@
             id="updateButton"
             class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-6 rounded-lg shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-75 transition-all duration-200 transform hover:-translate-y-0.5 active:scale-95 w-full"
         >
-            Update Value
+            Add Value
         </button>
 
         <!-- Message box for user feedback -->
@@ -53,16 +53,24 @@
         const updateButton = document.getElementById('updateButton');
         const messageBox = document.getElementById('messageBox');
 
-        // Initialize the current value
-        let currentValue = "Hello World!"; // You can set any initial value here
+        // Initialize the current value as a number for addition
+        let currentValue = 0; // Changed from "Hello World!" to a numeric initial value
 
         /**
          * Function to update the displayed value on the page.
-         * @param {string} value - The new value to display.
+         * This function now expects a number and updates the internal `currentValue`.
+         * @param {number} value - The new numeric value to display.
          */
         function updateDisplay(value) {
-            displayValueElement.textContent = value;
-            currentValue = value; // Update the internal state
+            // Ensure the value is a number before setting it
+            if (typeof value === 'number' && !isNaN(value)) {
+                displayValueElement.textContent = value;
+                currentValue = value; // Update the internal state as a number
+            } else {
+                // Fallback for non-numeric values, though the logic should prevent this
+                displayValueElement.textContent = String(value);
+                currentValue = String(value); // Keep it consistent if it's not a number
+            }
         }
 
         /**
@@ -72,6 +80,7 @@
          */
         function showMessage(message, type = 'info') {
             messageBox.textContent = message;
+            // Remove all previous type classes and then add the correct one
             messageBox.classList.remove('hidden', 'bg-green-100', 'text-green-800', 'bg-red-100', 'text-red-800', 'bg-blue-100', 'text-blue-800');
 
             if (type === 'success') {
@@ -92,20 +101,30 @@
 
         // Event listener for the update button
         updateButton.addEventListener('click', () => {
-            const newValue = newValueInput.value.trim(); // Get the value from the input and remove leading/trailing whitespace
+            const inputValue = newValueInput.value.trim(); // Get the value from the input
 
-            if (newValue) {
-                updateDisplay(newValue); // Update the displayed value
+            // Attempt to parse the input value as a floating-point number
+            const numericInput = parseFloat(inputValue);
+
+            // Check if the input is a valid number
+            if (!isNaN(numericInput)) {
+                // Add the numeric input to the current numeric value
+                const newTotal = currentValue + numericInput;
+                updateDisplay(newTotal); // Update the displayed value with the sum
                 newValueInput.value = ''; // Clear the input field
-                showMessage('Value updated successfully!', 'success');
+                showMessage(`Added ${numericInput}. New total: ${newTotal}`, 'success');
+            } else if (inputValue === '') {
+                // If input is empty, prompt user to enter a number
+                showMessage('Please enter a number to add.', 'error');
             } else {
-                showMessage('Please enter a value to update.', 'error');
+                // If input is not a valid number, show an error
+                showMessage('Invalid input. Please enter a valid number.', 'error');
             }
         });
 
         // Initial display of the value when the page loads
         document.addEventListener('DOMContentLoaded', () => {
-            updateDisplay(currentValue);
+            updateDisplay(currentValue); // Display the initial numeric value (0)
         });
     </script>
 </body>
